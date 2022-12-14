@@ -2,4 +2,5 @@
 
 
 
-![](/Users/donghwanyeom/Desktop/coding/mogaesup/thumbnail.png)
+![](https://github.com/mogaesuup/mogaesup_promotion/blob/master/thumbnail.png?raw=true)
+
