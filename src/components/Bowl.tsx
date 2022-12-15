@@ -33,4 +33,4 @@ export default function Bowl({ value, setValue }: IBowl) {
     </group>
   );
 }
-useGLTF.preload(URL + "bowl.gltf");
+// useGLTF.preload(URL + "bowl.gltf");

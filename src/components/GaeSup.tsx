@@ -14,6 +14,7 @@ export default function GaeSup({ value, setValue }: IGaeSup) {
   const { actions, names } = useAnimations(animations, group);
 
   useEffect(() => {
+    console.log(nodes, materials);
     actions["greet"]?.reset().fadeIn(0.5).play();
     return () => {
       actions["greet"]?.fadeOut(0.5);
@@ -44,21 +45,21 @@ export default function GaeSup({ value, setValue }: IGaeSup) {
       <skinnedMesh
         castShadow
         receiveShadow
-        material={materials.cloth}
+        material={materials.base}
         geometry={nodes.gaesup_2.geometry}
         skeleton={nodes.gaesup_2.skeleton}
       />
       <skinnedMesh
         castShadow
         receiveShadow
-        material={materials.mouse}
+        material={materials.cloth}
         geometry={nodes.gaesup_1.geometry}
         skeleton={nodes.gaesup_1.skeleton}
       />
       <skinnedMesh
         castShadow
         receiveShadow
-        material={materials.base}
+        material={materials.face_elements}
         geometry={nodes.gaesup_3.geometry}
         skeleton={nodes.gaesup_3.skeleton}
       />
@@ -79,11 +80,11 @@ export default function GaeSup({ value, setValue }: IGaeSup) {
       <skinnedMesh
         castShadow
         receiveShadow
-        material={materials.face_elements}
-        geometry={nodes.gaesup_6.geometry}
-        skeleton={nodes.gaesup_6.skeleton}
+        material={materials.mouse}
+        geometry={nodes.gaesup.geometry}
+        skeleton={nodes.gaesup.skeleton}
       />
     </group>
   );
 }
-useGLTF.preload(URL + "gaesup.gltf");
+// useGLTF.preload(URL + "gaesup.gltf");

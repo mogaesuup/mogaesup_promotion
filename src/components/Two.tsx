@@ -1,4 +1,3 @@
-import { useGLTF } from "@react-three/drei";
 import { useLoader } from "@react-three/fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { URL } from "./CONSTANTS";
@@ -38,4 +37,4 @@ export default function Two({ value, setValue }: ITwo) {
   );
 }
 
-useGLTF.preload(URL + "two.gltf");
+// useGLTF.preload(URL + "two.gltf");

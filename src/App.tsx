@@ -11,20 +11,21 @@ import Title from "./components/Title";
 export default function App() {
   const [value, setValue] = useState({ title: "", value: "" });
   return (
-    <Suspense fallback={null}>
+    <>
       <Title />
       <Description value={value} />
       <Canvas shadows>
         <OrbitControls target={[0, 0.35, 0]} maxPolarAngle={1.45} />
         <color attach="background" args={["#ffffff"]} />
         <Stage environment="sunset" intensity={0.6}>
-          <Two setValue={setValue} value={value} />
           <GaeSup setValue={setValue} value={value} />
+          <Two setValue={setValue} value={value} />
+
           <Bowl setValue={setValue} value={value} />
         </Stage>
         <BakeShadows />
       </Canvas>
       <Footer />
-    </Suspense>
+    </>
   );
 }

@@ -39,16 +39,20 @@ export const Description = styled.div`
   height: 30vh;
   position: fixed;
   z-index: 11;
+  font-family: "GMARKETSANSTTFBOLD.TTF";
+
+  p {
+    margin: 0;
+    font-size: 12px;
+  }
 
   h1 {
     margin: 0;
-    font-family: "GMARKETSANSTTFBOLD.TTF";
     font-size: 50px;
   }
 
   h2 {
     margin: 0;
-    font-family: "GMARKETSANSTTFBOLD.TTF";
     font-size: 30px;
   }
 `;
