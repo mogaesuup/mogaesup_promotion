@@ -21,6 +21,13 @@ export default function Bowl({ value, setValue }: IBowl) {
           value: "방금 나온 따끈따끈한 죽이다",
         })
       }
+      onClick={() =>
+        setValue({
+          ...value,
+          title: "'죽'이네요 죽",
+          value: "방금 나온 따끈따끈한 죽이다",
+        })
+      }
       onPointerOut={() =>
         setValue({
           ...value,

@@ -12,12 +12,9 @@ export default function GaeSup({ value, setValue }: IGaeSup) {
     URL + "gaesup.gltf"
   );
   const { actions, names } = useAnimations(animations, group);
-
   useEffect(() => {
-    console.log(nodes, materials);
-    actions["greet"]?.reset().fadeIn(0.5).play();
     return () => {
-      actions["greet"]?.fadeOut(0.5);
+      actions["idle"]?.fadeOut(0.5);
     };
   }, [actions, names]);
 
@@ -25,52 +22,65 @@ export default function GaeSup({ value, setValue }: IGaeSup) {
     <group
       scale={[0.4, 0.4, 0.4]}
       position={[-1.5, 0, -1]}
-      onPointerOver={() =>
+      onPointerOver={() => {
         setValue({
           ...value,
           title: "'개'맞습니다. 그래도 귀여워요",
           value: "모개숲 시그의 마스코트 개숲이 인사드립니다",
-        })
-      }
-      onPointerOut={() =>
+        });
+        actions["idle"]?.fadeOut(0.5);
+        actions["greet"]?.reset().fadeIn(0.5).play();
+      }}
+      onClick={() => {
+        setValue({
+          ...value,
+          title: "'개'맞습니다. 그래도 귀여워요",
+          value: "모개숲 시그의 마스코트 개숲이 인사드립니다",
+        });
+        actions["idle"]?.fadeOut(0.5);
+        actions["greet"]?.reset().fadeIn(0.5).play();
+      }}
+      onPointerOut={() => {
         setValue({
           ...value,
           title: "",
           value: "",
-        })
-      }
+        });
+        actions["greet"]?.fadeOut(0.5);
+        actions["idle"]?.reset().fadeIn(0.5).play();
+      }}
     >
       <primitive object={scene} ref={group} visible={false} />
 
       <skinnedMesh
         castShadow
         receiveShadow
-        material={materials.base}
-        geometry={nodes.gaesup_2.geometry}
-        skeleton={nodes.gaesup_2.skeleton}
-      />
-      <skinnedMesh
-        castShadow
-        receiveShadow
         material={materials.cloth}
-        geometry={nodes.gaesup_1.geometry}
-        skeleton={nodes.gaesup_1.skeleton}
+        geometry={nodes.cloth_1.geometry}
+        skeleton={nodes.cloth_1.skeleton}
       />
       <skinnedMesh
         castShadow
         receiveShadow
-        material={materials.face_elements}
-        geometry={nodes.gaesup_3.geometry}
-        skeleton={nodes.gaesup_3.skeleton}
+        material={materials.mouse}
+        geometry={nodes.cloth_2.geometry}
+        skeleton={nodes.cloth_2.skeleton}
       />
       <skinnedMesh
         castShadow
         receiveShadow
-        material={materials.face_elements}
-        geometry={nodes.gaesup_5.geometry}
-        skeleton={nodes.gaesup_5.skeleton}
+        material={materials.base}
+        geometry={nodes.cloth_3.geometry}
+        skeleton={nodes.cloth_3.skeleton}
       />
       <skinnedMesh
+        castShadow
+        receiveShadow
+        material={materials.face}
+        geometry={nodes.cloth_4.geometry}
+        skeleton={nodes.cloth_4.skeleton}
+      />
+      {/* <skinnedMesh
         castShadow
         receiveShadow
         material={materials.face_elements}
@@ -83,7 +93,7 @@ export default function GaeSup({ value, setValue }: IGaeSup) {
         material={materials.mouse}
         geometry={nodes.gaesup.geometry}
         skeleton={nodes.gaesup.skeleton}
-      />
+      /> */}
     </group>
   );
 }

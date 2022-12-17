@@ -12,14 +12,22 @@ export const Title = styled.div`
   height: 20vh;
   position: fixed;
   z-index: 10;
+  font-family: "GMARKETSANSTTFBOLD.TTF";
 
   h1 {
     margin: 0;
-    font-family: "GMARKETSANSTTFBOLD.TTF";
     font-size: 80px;
-    span {
-      font-family: "GMARKETSANSTTFBOLD.TTF";
-      font-size: 50px;
+  }
+
+  @media (max-width: 800px) {
+    h1 {
+      font-size: 60px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    h1 {
+      font-size: 40px;
     }
   }
 `;
@@ -55,11 +63,36 @@ export const Description = styled.div`
     margin: 0;
     font-size: 30px;
   }
+
+  @media (max-width: 800px) {
+    p {
+      margin: 0;
+      font-size: 10px;
+    }
+    h1 {
+      font-size: 30px;
+    }
+
+    h2 {
+      font-size: 20px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    h1 {
+      font-size: 20px;
+    }
+
+    h2 {
+      font-size: 16px;
+    }
+  }
 `;
 
 export const Footer = styled.div`
   display: flex;
-  align-items: flex-end;
+  justify-content: space-between;
+  align-items: center;
   padding: 10px;
   bottom: 0;
   width: 100vw;
@@ -68,6 +101,12 @@ export const Footer = styled.div`
   z-index: 12;
   font-family: "GMARKETSANSTTFBOLD.TTF";
   font-size: 20px;
+
+  img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+  }
 
   a {
     color: #000000;

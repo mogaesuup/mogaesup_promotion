@@ -19,6 +19,13 @@ export default function Two({ value, setValue }: ITwo) {
           value: "콩의 전설이 깃든 숫자 2이다.콩의 전설이 깃든 숫자 2이다",
         })
       }
+      onClick={() =>
+        setValue({
+          ...value,
+          title: "콩의 가호'2'",
+          value: "콩의 전설이 깃든 숫자 2이다.콩의 전설이 깃든 숫자 2이다",
+        })
+      }
       onPointerOut={() =>
         setValue({
           ...value,
